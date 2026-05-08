@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Sidebar from '@/components/Sidebar'
 import StatusBadge from '@/components/StatusBadge'
 import Toast from '@/components/Toast'
@@ -30,6 +31,7 @@ const hseReports = [
 ]
 
 export default function HSEPage() {
+  const router = useRouter()
   const [incidents, setIncidents] = useState<Incident[]>(mockIncidents)
   const [actions, setActions] = useState<CorrectiveAction[]>(initialActions)
   const [selectedIncident, setSelectedIncident] = useState<Incident>(mockIncidents[1])
@@ -94,8 +96,12 @@ export default function HSEPage() {
           <div className="font-mono text-[12px] text-[#9CA3AF]">{selectedIncident.id}</div>
           <h2 className="font-syne text-[20px] text-[#F9FAFB]">{selectedIncident.type}</h2>
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
           <StatusBadge status={selectedIncident.status} />
+          <button onClick={() => router.push('/comms')} className="h-8 px-3 font-inter text-xs border border-[#1F2937] text-[#9CA3AF] rounded hover:border-[#F59E0B] hover:text-[#F59E0B] transition-colors flex items-center gap-1.5">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Discuss in Comms
+          </button>
           <button onClick={() => showToast('Incident closed', 'success')} className="border border-green-800 text-green-400 px-3 h-8 rounded text-xs hover:bg-green-900/30 transition-colors">Close Incident</button>
           <button onClick={handleGenerateHSEReport} className="bg-[#F59E0B] text-black font-semibold px-3 h-8 rounded text-xs hover:bg-[#D97706] transition-colors">
             {generating ? 'Generating...' : 'Generate HSE Report'}

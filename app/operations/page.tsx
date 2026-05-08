@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import Sidebar from '@/components/Sidebar'
 import StatusBadge from '@/components/StatusBadge'
 import Toast from '@/components/Toast'
@@ -9,6 +10,7 @@ import Timeline from '@/components/Timeline'
 import { mockJobs, mockTools, mockReports, Job, Tool, Report } from '@/lib/mockData'
 
 export default function OperationsPage() {
+  const router = useRouter()
   const [jobs, setJobs] = useState<Job[]>(mockJobs)
   const [tools, setTools] = useState<Tool[]>(mockTools)
   const [reports] = useState<Report[]>(mockReports)
@@ -162,8 +164,16 @@ export default function OperationsPage() {
           <div className="font-mono text-[12px] text-[#9CA3AF] mt-1">{selectedJob.id}</div>
           <div className="text-[12px] text-[#9CA3AF] mt-1">{selectedJob.engineer} · {selectedJob.field} · {selectedJob.client}</div>
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
           <StatusBadge status={selectedJob.status} />
+          <button onClick={() => router.push('/comms')} className="h-8 px-3 font-inter text-xs border border-[#1F2937] text-[#9CA3AF] rounded hover:border-[#F59E0B] hover:text-[#F59E0B] transition-colors flex items-center gap-1.5">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Discuss
+          </button>
+          <button onClick={() => router.push('/invoice')} className="h-8 px-3 font-inter text-xs border border-[#1F2937] text-[#9CA3AF] rounded hover:border-[#F59E0B] hover:text-[#F59E0B] transition-colors flex items-center gap-1.5">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Invoice
+          </button>
           <button onClick={handleGenerateReport} className="bg-[#F59E0B] text-black font-semibold px-3 h-8 rounded text-xs hover:bg-[#D97706] transition-colors">
             {generating ? 'Generating...' : 'Generate Report'}
           </button>

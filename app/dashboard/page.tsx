@@ -26,7 +26,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Stat Cards */}
-        <div className="px-6 mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="px-6 mt-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {[
             { val: '3', label: 'Active Jobs', color: 'text-blue-400', sub: '' },
             { val: '2', label: 'Tools Critical', color: 'text-red-400', sub: 'action required' },
@@ -34,6 +34,8 @@ export default function DashboardPage() {
             { val: '67%', label: 'Nigerian Content Score', color: 'text-amber-400', sub: 'AT RISK — below 70%' },
             { val: '2', label: 'HSE Incidents (30d)', color: 'text-green-400', sub: '0 LTI this year' },
             { val: '2', label: 'Assets Overdue', color: 'text-red-400', sub: 'maintenance overdue' },
+            { val: '4', label: 'Active Channels', color: 'text-blue-400', sub: '3 unread messages' },
+            { val: '₦11.9M', label: 'Outstanding Invoices', color: 'text-red-400', sub: '1 overdue · 1 draft' },
           ].map(s => (
             <div key={s.label} className="bg-[#111827] border border-[#1F2937] rounded p-4">
               <div className={`font-syne text-[28px] font-bold ${s.color}`}>{s.val}</div>
@@ -44,7 +46,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Workspace Cards */}
-        <div className="px-6 mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="px-6 mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
             { n: '01', title: 'Field Operations', summary: '3 active jobs · 2 tools critical · Last report: 12 Apr 2025', href: '/operations' },
             { n: '02', title: 'NCDMB Compliance', summary: 'Nigerian Content: 67% AT RISK · Next filing: 30 Jun 2025 (18 days)', href: '/compliance' },
@@ -57,6 +59,18 @@ export default function DashboardPage() {
               <p className="text-[13px] text-[#9CA3AF] mt-2 leading-relaxed">{w.summary}</p>
             </Link>
           ))}
+          <Link href="/comms" className="bg-[#111827] border border-[#1F2937] rounded p-5 hover:border-[#F59E0B]/40 transition-colors cursor-pointer block">
+            <span className="font-inter text-[#F59E0B] text-[10px] uppercase tracking-widest font-medium">05</span>
+            <h3 className="font-mona text-white text-base font-semibold mt-1">Comms</h3>
+            <p className="font-inter text-[#9CA3AF] text-xs mt-2 leading-relaxed">4 active channels · 3 unread messages · Last meeting: Today 10:38 AM</p>
+            <span className="font-inter text-[#F59E0B] text-xs mt-3 block">→ Open Comms</span>
+          </Link>
+          <Link href="/invoice" className="bg-[#111827] border border-[#1F2937] rounded p-5 hover:border-[#F59E0B]/40 transition-colors cursor-pointer block">
+            <span className="font-inter text-[#F59E0B] text-[10px] uppercase tracking-widest font-medium">06</span>
+            <h3 className="font-mona text-white text-base font-semibold mt-1">Invoice Builder</h3>
+            <p className="font-inter text-[#9CA3AF] text-xs mt-2 leading-relaxed">₦11.9M outstanding · 1 overdue invoice · 1 draft pending</p>
+            <span className="font-inter text-[#F59E0B] text-xs mt-3 block">→ Open Invoice Builder</span>
+          </Link>
         </div>
 
         {/* Bottom Row */}

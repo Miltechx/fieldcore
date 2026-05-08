@@ -4,8 +4,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        syne: ['var(--font-syne)', 'sans-serif'],
-        sans: ['var(--font-dm-sans)', 'sans-serif'],
+        mona: ['var(--font-mona)', 'sans-serif'],
+        jakarta: ['var(--font-jakarta)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
+        syne: ['var(--font-mona)', 'sans-serif'],
       }
     }
   },

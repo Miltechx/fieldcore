@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Sidebar from '@/components/Sidebar'
 import StatusBadge from '@/components/StatusBadge'
 import Toast from '@/components/Toast'
 import { mockFilings, mockComplianceData, Filing } from '@/lib/mockData'
 
 export default function CompliancePage() {
+  const router = useRouter()
   const [selectedMetric, setSelectedMetric] = useState<'overview' | 'workforce' | 'procurement' | 'ncfcc' | 'capacity'>('overview')
   const [selectedFiling, setSelectedFiling] = useState<Filing>(mockFilings[3])
   const [activeTab, setActiveTab] = useState<'overview' | 'filings' | 'documents'>('overview')
@@ -380,6 +382,10 @@ export default function CompliancePage() {
                 </button>
               ))}
             </div>
+            <button onClick={() => router.push('/comms')} className="h-8 px-3 font-inter text-xs border border-[#1F2937] text-[#9CA3AF] rounded hover:border-[#F59E0B] hover:text-[#F59E0B] transition-colors flex items-center gap-1.5">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Schedule Review
+            </button>
             <button onClick={handleGenerate} className="bg-[#F59E0B] text-black font-semibold px-3 h-8 rounded text-xs hover:bg-[#D97706] transition-colors">
               {generating ? 'Generating...' : 'Generate NCP Report'}
             </button>

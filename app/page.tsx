@@ -84,7 +84,7 @@ export default function LandingPage() {
 
       {/* Solution */}
       <section className="bg-[#111827] py-20 px-6">
-        <h2 className="font-syne text-[36px] text-[#F9FAFB] text-center">Four Workspaces. One Platform.</h2>
+        <h2 className="font-syne text-[36px] text-[#F9FAFB] text-center">Six Workspaces. One Platform.</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-12">
           {[
             { n: '01', title: 'Field Operations', desc: 'Job cards, tool calibration tracking, field timelines, and one-click report generation. Built for wireline engineers and well intervention contractors.', href: '/operations' },
@@ -99,6 +99,18 @@ export default function LandingPage() {
               <Link href={m.href} className="text-[#F59E0B] text-sm mt-4 block hover:underline">→ Explore Module</Link>
             </div>
           ))}
+          <div className="bg-[#0A0F1E] border border-[#1F2937] rounded p-6 hover:border-[#F59E0B]/40 transition-colors">
+            <span className="text-[#F59E0B] text-[11px] uppercase tracking-widest">05</span>
+            <div className="font-syne text-[18px] text-[#F9FAFB] mt-1">Comms</div>
+            <p className="text-[14px] text-[#9CA3AF] mt-3 leading-relaxed">Encrypted team chat, scheduled meetings with AI-generated minutes, voice notes, and file sharing — all inside FieldCore. No WhatsApp. No Google Meet. No switching apps.</p>
+            <Link href="/comms" className="text-[#F59E0B] text-sm mt-4 block hover:underline">→ Explore Module</Link>
+          </div>
+          <div className="bg-[#0A0F1E] border border-[#1F2937] rounded p-6 hover:border-[#F59E0B]/40 transition-colors">
+            <span className="text-[#F59E0B] text-[11px] uppercase tracking-widest">06</span>
+            <div className="font-syne text-[18px] text-[#F9FAFB] mt-1">Invoice Builder</div>
+            <p className="text-[14px] text-[#9CA3AF] mt-3 leading-relaxed">Build professional invoices in your company format, send directly to clients via email or WhatsApp, and track payment status — without leaving FieldCore.</p>
+            <Link href="/invoice" className="text-[#F59E0B] text-sm mt-4 block hover:underline">→ Explore Module</Link>
+          </div>
         </div>
       </section>
 

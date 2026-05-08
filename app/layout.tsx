@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
-import { Syne, DM_Sans } from 'next/font/google'
+import { Mona_Sans, Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import './globals.css'
 
-const syne = Syne({ subsets: ['latin'], variable: '--font-syne', weight: ['400', '600', '700', '800'] })
-const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans', weight: ['400', '500', '600'] })
+const monaSans = Mona_Sans({
+  subsets: ['latin'],
+  variable: '--font-mona',
+  weight: ['400', '500', '600', '700', '800']
+})
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+  weight: ['700', '800']
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['400', '500', '600']
+})
 
 export const metadata: Metadata = {
   title: 'FieldCore — Nigeria Oil & Gas Platform',
@@ -16,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${monaSans.variable} ${plusJakarta.variable} ${inter.variable}`}>
       <body className="bg-[#0A0F1E] text-[#F9FAFB] font-sans antialiased">
         {children}
       </body>
