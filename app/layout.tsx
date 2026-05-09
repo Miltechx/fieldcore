@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Mona_Sans, Plus_Jakarta_Sans, Inter } from 'next/font/google'
+import { Space_Grotesk, Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import './globals.css'
 
-const monaSans = Mona_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-mona',
-  weight: ['400', '500', '600', '700', '800']
+  weight: ['400', '500', '600', '700']
 })
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${monaSans.variable} ${plusJakarta.variable} ${inter.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${plusJakarta.variable} ${inter.variable}`}>
       <body className="bg-[#0A0F1E] text-[#F9FAFB] font-sans antialiased">
         {children}
       </body>
